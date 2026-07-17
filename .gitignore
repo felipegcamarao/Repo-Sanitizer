@@ -1,0 +1,92 @@
+# ----- Build & packaging -----
+build/
+dist/
+*.egg-info/
+*.egg
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ----- Virtualenvs -----
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ----- Testing & coverage -----
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# ----- Linters / type-checkers -----
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+
+# ----- IDE / OS -----
+.vscode/*
+!.vscode/settings.json.example
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ----- Agent runtime state (NUNCA commitar) -----
+.sanitizer-state.json
+/Relatorios/.tmp/
+*.local.env
+
+# ----- Operator identity (PII do operador — ADR-029 v1.1.0 — NUNCA commitar) -----
+# O arquivo .json contém nomes/usernames/domínios privados do operador.
+# O .template é commitado (boilerplate público com placeholders).
+src/repo_sanitizer/operator_identity.json
+!src/repo_sanitizer/operator_identity.json.template
+
+# ----- Logs -----
+*.log
+logs/
+
+# ----- Historicos de sessao IA (mesma regra que o agente aplica aos alvos) -----
+safelog*.jsonl
+.claude/
+.specstory/
+
+# === repo-sanitizer-agent (ADR-011 / MV-07) — entradas canonicas ===
+.sanitizer-allow
+/Relatorios/
+audit-log.jsonl
+SANITIZATION_REPORT_*.md
+FILTER_DIFF_*.md
+node_modules/
+__pypackages__/
+*.pyc
+*.pyo
+.hypothesis/
+target/
+*.pdb
+*.class
+*.o
+*.obj
+.cache/
+.parcel-cache/
+.turbo/
+.svelte-kit/
+.next/
+.nyc_output/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.terraform/
+.gradle/
+.ipynb_checkpoints/
+.env
+.env.*
+# === fim das entradas repo-sanitizer-agent ===

@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "shared_by": [
+    "sentinel-agent.prompt.md (RS-008)",
+    "memory_writer.py (RS-013)"
+  ],
+  "patterns": [
+    {"id": "INJ-01", "name": "ignore previous", "regex": "(?i)\\b(ignore|disregard|forget|pretend|override)\\b[^.!?\\n]{0,80}\\b(previous|prior|all|the\\s+above)\\b[^.!?\\n]{0,80}\\b(instructions?|rules|prompts?)\\b"},
+    {"id": "INJ-02", "name": "system role marker", "regex": "(?i)\\bsystem\\s*:\\s*"},
+    {"id": "INJ-03", "name": "new instructions claim", "regex": "(?i)new\\s+(instructions|rules|system|directives)"},
+    {"id": "INJ-04", "name": "forget previous", "regex": "(?i)\\b(disregard|forget|ignore|override)\\b[^.!?\\n]{0,80}\\b(the\\s+above|above|previous|prior)\\b"},
+    {"id": "INJ-05", "name": "closing tag spoof", "regex": "</?(nexus|sentinel|project|web|memory)_"},
+    {"id": "INJ-06", "name": "execute verb", "regex": "(?i)\\bexecute\\b\\s+(the|this|following)?"},
+    {"id": "INJ-07", "name": "rm -rf", "regex": "(?i)\\brm\\s+-rf\\b"},
+    {"id": "INJ-08", "name": "shell substitution", "regex": "\\$\\("},
+    {"id": "INJ-09", "name": "backtick eval", "regex": "`[^`]+`"},
+    {"id": "INJ-10", "name": "script injection", "regex": "(?i)<script\\b"},
+    {"id": "INJ-11", "name": "javascript scheme", "regex": "(?i)javascript:"},
+    {"id": "INJ-12", "name": "template injection", "regex": "\\{\\{[^}]*\\}\\}|\\{%[^%]*%\\}"}
+  ]
+}

@@ -1,0 +1,23 @@
+# Rust build outputs
+target/
+**/*.rs.bk
+
+# Cargo
+Cargo.lock
+# Comente a linha acima em bibliotecas; mantenha em binarios.
+
+# Backup files
+*.orig
+*.swp
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Generated docs
+/target/doc/
+
+# OS
+.DS_Store
+Thumbs.db

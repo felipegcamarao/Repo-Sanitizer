@@ -1,0 +1,14 @@
+{
+  "names": [
+    "Seu Nome Completo",
+    "Seu Apelido"
+  ],
+  "usernames": [],
+  "domains": [
+    "seudominio.com"
+  ],
+  "extra_redact_patterns": [
+    "seu\\.email@gmail\\.com",
+    "\\bAB\\d{4}\\b"
+  ]
+}

@@ -1,0 +1,46 @@
+# Build / dist
+build/
+dist/
+out/
+bin/
+target/
+
+# Logs
+*.log
+logs/
+
+# Temporary
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Editor / IDE
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Env / credentials
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Cache
+.cache/
+*.cache
+
+# Coverage
+coverage/
+*.lcov

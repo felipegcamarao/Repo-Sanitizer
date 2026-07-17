@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repo-sanitizer-agent"
+version = "1.3.0"
+description = "GitHub Repo Sanitizer & Publisher Agent (Pipeline A+ v4.1.x; AgenteIA local-first PT-BR)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [
+    { name = "[REDACTED-NAME]", email = "<REDACTED-EMAIL_PESSOAL>" },
+]
+keywords = ["sanitizer", "secrets", "github", "pipeline-a-plus", "agente-ia"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+    "Natural Language :: Portuguese (Brazilian)",
+]
+
+dependencies = [
+    "pydantic>=2.6,<3.0",
+    "regex>=2024.5.15",
+]
+
+[project.optional-dependencies]
+rich = ["rich>=13.7,<14.0"]
+dev = [
+    "pytest>=9.0.3,<10.0",
+    "pytest-cov>=5.0",
+    "pip-audit>=2.7",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "rich>=13.7,<14.0",
+]
+
+[project.scripts]
+repo-sanitize = "repo_sanitizer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"repo_sanitizer" = [
+    "templates/*.md",
+    "templates/gitignore/*.gitignore",
+]
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--showlocals",
+]
+testpaths = ["tests"]
+markers = [
+    "smoke: smoke tests (rapidos, gate inter-bloco)",
+    "security: testes de seguranca (RS-001..RS-030)",
+    "integration: testes integration golden path",
+    "slow: testes lentos (skip via -m 'not slow')",
+]
+
+[tool.coverage.run]
+source = ["src/repo_sanitizer"]
+branch = true
+omit = [
+    "*/templates/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "I", "N", "UP", "B", "A", "C4", "PIE", "SIM", "TID", "RUF",
+]
+ignore = [
+    "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+"scripts/**" = ["T20", "SIM108"]
+# Threat tree tests usam nome canonico R02/R03 do threat-model-report (uppercase)
+"tests/security/test_threat_tree_*.py" = ["N999"]
+# Copia local Sentinel (ADR-023 + DEF-08): preserva style upstream para diff/audit limpo
+"src/repo_sanitizer/helpers/_integrity.py" = ["I001", "UP017", "SIM105"]
+"src/repo_sanitizer/helpers/_yaml_codec.py" = ["I001", "UP017", "SIM105", "B007", "PLR2004"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = ["regex.*", "rich.*"]
+ignore_missing_imports = true
+
+# Copias locais Sentinel (ADR-023 + DEF-08): estilo upstream preservado para
+# diff/audit limpo (hash-locked em integrity.md) — nao aplicar strict local.
+[[tool.mypy.overrides]]
+module = [
+    "repo_sanitizer.helpers._integrity",
+    "repo_sanitizer.helpers._yaml_codec",
+]
+ignore_errors = true

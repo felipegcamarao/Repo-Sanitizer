@@ -1,0 +1,35 @@
+# Composer
+/vendor/
+composer.phar
+
+# Laravel / Symfony / framework runtime
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*
+.phpunit.result.cache
+.phpunit.cache/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Tools
+.php_cs.cache
+.phpcs.cache
+.phpstan.cache
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

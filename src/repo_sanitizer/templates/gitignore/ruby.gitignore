@@ -1,0 +1,45 @@
+# Bundler
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# Generated files
+*.gem
+*.rbc
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Coverage
+/coverage/
+.coverage
+
+# Rails specific
+/log/
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system/
+/storage/*
+!/storage/.keep
+
+# IDEs / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# YARD documentation
+/_yardoc/
+/doc/
+/rdoc/
+
+# Sass
+.sass-cache/

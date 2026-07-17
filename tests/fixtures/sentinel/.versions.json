@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "agent": "repo-sanitizer-agent",
+  "agent_version": "0.1.0a1",
+  "bootstrap_at": "2026-05-26T06:24:08+00:00",
+  "sentinel_upstream_root": "C:\\VS Code\\A+ AGENTS\\Agents Memory",
+  "sentinel_pin": {
+    "_sanitize_version": "v1.2.0",
+    "injection_patterns_version": "1.0.0",
+    "_yaml_codec_version": "1.0.0",
+    "_integrity_version": "Sentinel v1.x (adapted local for repo-sanitizer)"
+  },
+  "copies": [
+    {
+      "label": "_sanitize",
+      "upstream_path": "C:/VS Code/A+ AGENTS/Agents Memory/helpers/_sanitize.py",
+      "upstream_sha256": "df98455c111eaf8e06aaa728d759f7ae02fe39dabf484145fde3c93adaf0bdd3",
+      "local_path": "tests/fixtures/sentinel/_sanitize.py",
+      "local_sha256": "df98455c111eaf8e06aaa728d759f7ae02fe39dabf484145fde3c93adaf0bdd3",
+      "adapted": false,
+      "size_bytes": 3641
+    },
+    {
+      "label": "injection_patterns",
+      "upstream_path": "C:/VS Code/A+ AGENTS/Agents Memory/schemas/injection_patterns.json",
+      "upstream_sha256": "4152fabec4a6040d09698b4e7b8fab76dc16da884b8f5f9297460efb9eeb11ea",
+      "local_path": "tests/fixtures/sentinel/injection_patterns.json",
+      "local_sha256": "4152fabec4a6040d09698b4e7b8fab76dc16da884b8f5f9297460efb9eeb11ea",
+      "adapted": false,
+      "size_bytes": 1258
+    },
+    {
+      "label": "_yaml_codec",
+      "upstream_path": "C:/VS Code/A+ AGENTS/Agents Memory/helpers/_yaml_codec.py",
+      "upstream_sha256": "75f6e9466e6002f91a6c4be65f5623eacc61e62190b0af8bcbc3404fdbabc9d6",
+      "local_path": "src/repo_sanitizer/helpers/_yaml_codec.py",
+      "local_sha256": "75f6e9466e6002f91a6c4be65f5623eacc61e62190b0af8bcbc3404fdbabc9d6",
+      "adapted": false,
+      "size_bytes": 4079
+    },
+    {
+      "label": "_integrity",
+      "upstream_path": "C:/VS Code/A+ AGENTS/Agents Memory/helpers/_integrity.py",
+      "upstream_sha256": "7b32d334b4a7748c6a00650bc32fa621074ffe3da9e9a195c196407c17ed5567",
+      "local_path": "src/repo_sanitizer/helpers/_integrity.py",
+      "local_sha256": "d137ce418774635b46a716f0fd77b2882c9b3032acc233418129c63b00a4c7c5",
+      "adapted": true,
+      "size_bytes": 5990
+    },
+    {
+      "label": "secret_patterns",
+      "upstream_path": null,
+      "upstream_sha256": null,
+      "local_path": "src/repo_sanitizer/secret_patterns.py",
+      "local_sha256": "2d0f1799d1638374445678211913cd8256a5317043888033e3461ee37901df21",
+      "adapted": false,
+      "size_bytes": 9041
+    }
+  ]
+}
